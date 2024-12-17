@@ -1,12 +1,8 @@
 import requests
 import json
 
-def generate_and_download_audio(text, audio_filename='downloaded_audio.mp3', type='M'):
-    voiceId = "en-US-miles"
-    if type =='M':
-        voiceId = "en-US-miles"
-    else:
-        voiceId = "en-US-natalie"
+def generate_and_download_audio(text, audio_filename='downloaded_audio.mp3', type='F'):
+    voiceId  = "en-US-natalie"
 
     url = "https://api.murf.ai/v1/speech/generate"
 
@@ -29,7 +25,7 @@ def generate_and_download_audio(text, audio_filename='downloaded_audio.mp3', typ
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'api-key': ''
+        'api-key': 'ap2_d992c223-99b7-4e5f-8044-290bbf6633b1'
     }
 
     # Sending POST request to generate speech

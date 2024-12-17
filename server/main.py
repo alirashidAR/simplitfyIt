@@ -14,7 +14,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["chrome-extension://ajcnjcgigpokmmjlkmbmbhpagflkohok"],  # Allow the Chrome extension
+    allow_origins=["*"],  # Allow the Chrome extension
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allows all headers
@@ -22,7 +22,7 @@ app.add_middleware(
 
 
 API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": "Bearer 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"}
 
 # Helper functions to generate summary, audio, and image
 async def generate_summary(way: str, text: str):
@@ -57,7 +57,7 @@ async def generate_final_video(text: str, way: str, inputs: str, type: str):
 
     # Step 2: Generate the audio from the summary
     print("Generating audio...")
-    audio_path = await generate_audio(summary,type)
+    audio_path = await generate_audio(summary,type=type)
     if not audio_path:
         raise HTTPException(status_code=500, detail="Failed to generate audio")
     print("Audio generated successfully")

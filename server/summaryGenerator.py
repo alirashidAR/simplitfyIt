@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 
 def generateSummary(way, content):
-    genai.configure(api_key=)
+    genai.configure(api_key="AIzaSyCBWZ53C-v6y4LEswaVlIrimuDt2W-FERk")
     model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(f'''Summarise this content in just a paragraph and in a {way} way. 
                                     {content} is the content that needs to be summarised.
